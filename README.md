@@ -22,7 +22,7 @@ B1: Check lần 4:
    - Đồng bộ dữ liệu (push): chọn rescan (load sự thay đổi dữ liệu trong local repository) -> chọn stage changed
      -> commit (điền vào mô tả cho sự thay đổi dữ liệu này) -> chọn commit (tạo cam kết - thỏa thuận sự thay đổi)
      Sau khi commit ta sẽ có được 1 point trong lịch sử thay đổi của dữ liệu.
-     -> chọn remote -> chọn push.
+     -> chọn remote -> chọn push (chọn đúng remote và đúng branch server - đã được kết nối).
    - Kiểm tra kết quả: Vào branch serverDev (server repository) tìm mở file README.md để kiểm tra xem dữ liệu đã được đồng bộ lên chưa.
      KQ: dữ liệu từ branch serverDev (local repository) được đồng bộ lên serverDev (server repository).
 B2: Check lần 5: Lặp lại B1.
