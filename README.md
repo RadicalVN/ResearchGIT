@@ -1,9 +1,13 @@
 # test
 Test đồng bộ dữ liệu từ serverDev (trên server repository) về serverDev (trong local repository)
-B1: Mở Git Gui, chọn merge -> chọn local merger ... (ctr + M) -> chọn tracking branch -> chọn origin/serverDev -> chọn merge
+B1: Check lần 1:
+   - Mở file README.md trên branch serverDev (của server repository) -> chỉnh sửa nội dung file -> Điền tiêu đề + mô tả rõ sự chỉnh sửa -> commit changes.
+   - Tạo remote (kết nối) giữa local repository và server repository: Mở Git Gui -> chọn remote -> chọn add ... -> điền name (tên remote - có thể có nhiều remote)
+     và location (link server repository trên github - đuôi *.git)
+   - Đồng bộ dữ liệu (merge): chọn merge -> chọn local merger ... (ctr + M) -> chọn tracking branch -> chọn origin/serverDev -> chọn merge
+   - Kiểm tra kết quả: Vào folder (local repository) tìm file README.md để kiểm tra xem dữ liệu đã được đồng bộ chưa.
      KQ: dữ liệu từ branch serverDev (trên server repository) được đồng bộ về serverDev (trong local repository).
-B2: Tiếp tục chỉnh sửa file README.md trên branch serverDev của server repository (hiện tại đang làm). 
-    Sau đó lặp lại bước 1,
-    Vào folder (local repository) tìm file README.md để kiểm tra xem dữ liệu đã được đồng bộ chưa.
+B2: Check lần 2: Lặp lại B1.
     KQ: dữ liệu từ branch serverDev (trên server repository) được đồng bộ về serverDev (trong local repository).
 B3: Check lần 3: lặp lại B2.
+    KQ: dữ liệu từ branch serverDev (trên server repository) được đồng bộ về serverDev (trong local repository).
