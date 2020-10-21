@@ -15,7 +15,7 @@ B3: Check lần 3: lặp lại B2.
 
 
 Test đồng bộ dữ liệu từ local lên server.
-B1: Check lần 1:
+B1: Check lần 3:
    - Mở file README.md trong folder (của local repository) -> chỉnh sửa nội dung file -> lưu lại.
    - Tạo remote (kết nối) giữa local repository và server repository: Mở Git Gui -> chọn remote -> chọn add ... -> điền name (tên remote - có thể có nhiều remote)
      và location (link server repository trên github - đuôi *.git)
@@ -25,3 +25,5 @@ B1: Check lần 1:
      -> chọn remote -> chọn push.
    - Kiểm tra kết quả: Vào branch serverDev (server repository) tìm mở file README.md để kiểm tra xem dữ liệu đã được đồng bộ lên chưa.
      KQ: dữ liệu từ branch serverDev (local repository) được đồng bộ lên serverDev (server repository).
+B2: Check lần 4: Lặp lại B1.
+    KQ: dữ liệu từ branch serverDev (local repository) được đồng bộ lên serverDev (server repository).
