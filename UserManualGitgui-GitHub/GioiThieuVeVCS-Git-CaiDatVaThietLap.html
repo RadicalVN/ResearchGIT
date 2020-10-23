@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<!-- saved from url=(0093)https://xuanthulab.net/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html -->
+<html lang="vi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta property="fb:app_id" content="1565807193699425">
+<meta name="description" content="Tìm hiểu khái niệm cơ bản về VCS, hệ thống quản lý phiên bản Git, cách cài đặt Git, nguyên lý hoạt động cơ bản của Git, cấu hình tham số chung cho Git">
+<meta property="og:image" content="https://xuanthulab.net/images/post/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap-1353.jpg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Giới thiệu về hệ thống quản lý phiên bản Git cài đặt và thiết lập">
+<meta property="og:description" content="Tìm hiểu khái niệm cơ bản về VCS, hệ thống quản lý phiên bản Git, cách cài đặt Git, nguyên lý hoạt động cơ bản của Git, cấu hình tham số chung cho Git">
+<meta property="og:url" content="https://xuanthulab.net/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html">
+<title>Giới thiệu về hệ thống quản lý phiên bản Git cài đặt và thiết lập</title>
+<link href="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/xtlab.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/jquery-ui.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="https://xuanthulab.net/public/img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+<script src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/cb=gapi.loaded_2" nonce="q55xBZvL" async=""></script><script src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/f.txt"></script><script src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/sdk.js.download" async="" crossorigin="anonymous"></script><script src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/cb=gapi.loaded_1" nonce="q55xBZvL" async=""></script><script src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/cb=gapi.loaded_0" nonce="q55xBZvL" async=""></script><script async="" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/analytics.js.download"></script><script src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/f(1).txt"></script><script src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/osd.js.download"></script><script src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/f(2).txt" id="google_shimpl"></script><script type="text/javascript" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/jquery-3.1.0.min.js.download"></script>
+<script type="text/javascript" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/popper.min.js.download"></script>
+<script type="text/javascript" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/jquery-ui.min.js.download"></script>
+<script type="text/javascript" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/jquery.ui.touch-punch.min.js.download"></script>
+<script type="text/javascript" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/xtlab.js.download"></script>
+
+<link rel="canonical" href="https://xuanthulab.net/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html">
+<script async="" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/f(3).txt"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4170344512131207",
+          enable_page_level_ads: true
+     });
+</script><link rel="preload" href="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/f(4).txt" as="script"><script type="text/javascript" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/f(4).txt"></script><link rel="preload" href="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/f(5).txt" as="script"><script type="text/javascript" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/f(5).txt"></script><link rel="stylesheet" type="text/css" href="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/prettify.css"><style>.gc-bubbleDefault{table-layout:auto!important}.gc-bubbleDefault,.gc-reset{background-color:transparent!important;text-align:left;padding:0!important;margin:0!important;border:0!important}.pls-bubbleTop{border-bottom:1px solid #ccc!important}.pls-contentLeft,.pls-topTail,.pls-vertShimLeft{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border_3.gif)!important}.pls-topTail{background-repeat:repeat-x!important;background-position:bottom!important}.pls-vertShim{background-color:#fff!important;text-align:right}.tbl-grey .pls-vertShim{background-color:#f5f5f5!important}.pls-vertShimLeft{background-repeat:repeat-y!important;background-position:100%!important;height:4px}.pls-vertShimRight{height:4px}.pls-confirm-container .pls-vertShim{background-color:#fff3c2!important}.pls-contentWrap{background-color:#fff!important;position:relative!important;vertical-align:top}.pls-contentLeft{background-repeat:repeat-y;background-position:100%;vertical-align:top}.pls-dropRight{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropR_3.png)!important;background-repeat:repeat-y!important}.pls-dropBL,.pls-dropBottom,.pls-dropRight,.pls-dropTR .pls-dropBR,.pls-tailleft,.pls-vert,.pls-vert img{vertical-align:top}.pls-dropBottom{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropB_3.png)!important;background-repeat:repeat-x!important;width:100%}.pls-topLeft{text-align:right}.pls-topLeft,.pls-topRight{background:inherit!important;vertical-align:bottom}.pls-topRight{text-align:left}.pls-bottomLeft{background:inherit!important;text-align:right}.pls-bottomRight{background:inherit!important;text-align:left;vertical-align:top}.pls-tailbottom,.pls-tailleft,.pls-tailright,.pls-tailtop{display:none;position:relative}.pls-dropBL,.pls-dropBR,.pls-dropTR,.pls-tailbottom,.pls-tailleft,.pls-tailright,.pls-tailtop{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite_3.png)!important;background-repeat:no-repeat}.tbl-grey .pls-dropBL,.tbl-grey .pls-dropBR,.tbl-grey .pls-dropTR,.tbl-grey .pls-tailbottom,.tbl-grey .pls-tailleft,.tbl-grey .pls-tailright,.tbl-grey .pls-tailtop{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite-grey.png)!important}.pls-tailbottom{background-position:-23px 0}.pls-confirm-container .pls-tailbottom{background-position:-23px -10px}.pls-tailtop{background-position:-19px -20px}.pls-tailright{background-position:0 0}.pls-tailleft{background-position:-10px 0}.pls-tailtop{vertical-align:top}.gc-bubbleDefault td{line-height:0;font-size:0}.pls-tailbottom,.pls-topLeft img,.pls-topRight img{vertical-align:bottom}.bubbleDropTR,.pls-bottomLeft,.pls-bottomLeft img,.pls-dropBottom img,.pls-dropBottomL img,.pls-dropBottomR img{vertical-align:top}.pls-dropTR{background-position:0 -22px}.pls-dropBR{background-position:0 -27px}.pls-dropBL{background-position:0 -16px}.pls-spacerbottom,.pls-spacerleft,.pls-spacerright,.pls-spacertop{position:static!important}.pls-spinner{bottom:0;position:absolute;left:0;margin:auto;right:0;top:0}</style><style type="text/css" data-fbcssmodules="css:fb.css.basecss:fb.css.dialog css:fb.css.iframewidget">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style></head>
+<body>
+<div class="container">
+    <div class="row">
+        
+<div class="header-space-top">
+    <span>&nbsp;</span>
+    <a class="logo" href="https://xuanthulab.net/" title="Kiến thức lập trình ứng dụng, Website, PHP,  Java, HTML, CSS">
+        <img alt="Kiến thức lập trình ứng dụng, Website, PHP,  Java, HTML, CSS" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/logo.png">
+    </a>
+    <div class="d-inline-block ml-auto">
+        <form method="post" class="m-2" action="https://xuanthulab.net/search/article/">
+            <div class="input-group">
+                <input type="text" class="form-control box-search-top bg-dark border-dark text-warning" name="qsearch" placeholder="Tìm kiếm">
+                <div class="input-group-append">
+                    <button class="btn btn-dark px-4" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<nav class="navbar navbar-expand-md navbar-dark navbar-xtlab">
+
+    <a class="navbar-brand" href="https://xuanthulab.net/" title="Kiến thức lập trình ứng dụng, Website, PHP,  Java, HTML, CSS">
+        Trang chủ    </a>
+
+    <ul class="navbar-nav d-md-none flex-grow-1 flex-row alwaytop"><li class="nav-item"><a href="https://xuanthulab.net/lap-trinh-php/" class="nav-link">PHP</a></li><li class="nav-item"><a href="https://xuanthulab.net/contact/" class="nav-link">Liên hệ</a></li></ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headermenuxtlab, #layout-menu" aria-controls="headermenuxtlab" aria-expanded="false" aria-label="Menu">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="headermenuxtlab">
+        <ul class="navbar-nav"><li class="nav-item"><a href="https://xuanthulab.net/html/" class="nav-link">HTML</a></li><li class="nav-item"><a href="https://xuanthulab.net/css/" class="nav-link">CSS</a></li><li class="nav-item"><a href="https://xuanthulab.net/javascript/" class="nav-link">JavaScript</a></li><li class="nav-item"><a href="https://xuanthulab.net/lap-trinh-php/" class="nav-link">PHP</a></li><li class="nav-item"><a href="https://xuanthulab.net/server/" class="nav-link">Server</a></li><li class="nav-item"><a href="https://xuanthulab.net/java/" class="nav-link">Java</a></li><li class="nav-item"><a href="https://xuanthulab.net/android-java/" class="nav-link">Android</a></li><li class="nav-item"><a href="https://xuanthulab.net/mathematica/" class="nav-link">Mathematica</a></li><li class="nav-item active "><a href="https://xuanthulab.net/git-va-github/" class="nav-link">Git và GitHub</a></li></ul>        <span class="ml-auto invisible"></span>
+        <ul class="navbar-nav"><li class="nav-item"><a href="https://xuanthulab.net/contact/" class="nav-link">Liên hệ</a></li></ul>
+                    <span id="menu-user-dropdown-replace" class="collapse"></span>
+                    </div>
+</nav>
+
+<script>
+    var DATAPOSTJSON = {'method':'dynamicinfo', 'id':1, 'params':{'routin':'GlobalFns'}};
+    ajaxcallapi(JSON.stringify(DATAPOSTJSON), '/api/', function (rt) {
+        if (rt.result.menuTopReplace != null) {
+            $('#menu-user-dropdown-replace').replaceWith(rt.result.menuTopReplace);
+        }
+    });
+</script>    </div>
+</div><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!0" data-load-complete="true"></iframe></ins></ins></ins>
+
+<div class="container" style="height: auto !important;">
+    <div class="row" style="height: auto !important;">
+        <div class="col-3 layout-menu" id="layout-menu">
+            <div class="list-group row rounded-0 list-group-flush small"><a class="list-group-item p-0 pl-1 font30 bg-danger list-group-item-action text-light text-center" href="https://xuanthulab.net/git-va-github/">Git và GitHub</a><a class="list-group-item p-1 pl-1 list-group-item-danger" href="https://xuanthulab.net/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html"> §1  <strong>VCS và Git</strong></a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/lenh-git-init-tao-du-an-git-moi.html"> §2 git init - khởi tạo</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/lenh-git-add-luu-thong-tin-chuan-bi-commit.html"> §3 git add - chuẩn bị commito</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/lenh-git-status-xem-trang-thai-cua-repo.html"> §4 git status - trạng thái Repo</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/su-dung-lenh-git-commit.html"> §5 git commit - thực hiện commit</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/dung-lenh-git-reset-huy-commit-cuoi-hoac-staging.html"> §6 git reset - undo</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/su-dung-lenh-git-log-xem-lai-lich-su-cac-commit-tren-git.html"> §7 Lịch sử commit với git log</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/lenh-git-diff-kiem-tra-su-thay-doi-tren-git.html"> §8 git diff - kiểm tra thay đổi</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/lenh-git-clone-sao-chep-ve-mot-remote-repo.html"> §9 git clone - sao chép repo</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/lenh-git-checkout-git-switch-git-restore-de-chuyen-nhanh-va-phuc-hoi.html"> §10 git checkout - switch, restore</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/cac-lenh-git-co-ban-lam-viec-voi-repository.html"> §11 <strong>Git cơ bản làm việc với Repository</strong></a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/lam-viec-voi-nhanh-branch-tao-nhanh-gop-nhanh-trong-git.html"> §12 <strong>Nhánh trong Git</strong></a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/lenh-git-merge-va-rebase-gop-va-viet-lai-lich-su-commit.html"> §13 git merge, git rebase</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/lenh-git-remote-quan-ly-cac-lien-ket-toi-remote-repo.html"> §14 git remote</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/lenh-git-push-day-du-lieu-tu-local-len-server.html"> §15 git push</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/lenh-git-fetch-git-pull-cap-nhat-du-lieu-tu-remote.html"> §16 git fetch, git pull</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/cai-dat-git-server-lenh-lam-viec-voi-remote-repository.html"> §17 <strong>Git Server / Remote Repository</strong></a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/lam-viec-voi-tag-trong-git.html"> §18 Tag trong Git</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/lam-viec-voi-remote-branch-trong-git.html"> §19 Remote Branch</a><a class="list-group-item p-1 pl-1  list-group-item-action list-group-item-warning" href="https://xuanthulab.net/su-dung-github-de-lam-remote-repo-chua-code-du-an.html"> §20 GitHub</a></div><div class="google-auto-placed" style="width: 100%; height: auto; clear: none; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-4170344512131207" data-adsbygoogle-status="done" style="display: block; margin: 10px auto; background-color: transparent; height: 250px;"><ins id="aswift_5_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:306px;background-color:transparent;"><ins id="aswift_5_anchor" style="display: block; border: none; height: 250px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 306px; background-color: transparent; overflow: visible;"><iframe id="aswift_5" name="aswift_5" style="left:0;position:absolute;top:0;border:0;width:306px;height:250px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="306" height="250" frameborder="0" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/ads(1).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!5" data-google-query-id="CM7F3N6fyuwCFUiX7AodgbkG3g" data-load-complete="true"></iframe></ins></ins></ins></div><ul class="child-navigator root-tag-menu">
+<li>
+<a href="https://xuanthulab.net/lap-trinh-php/">Lập trình PHP</a>
+<ul>
+<li>
+<a href="https://xuanthulab.net/php-co-ban/">PHP Cơ bản</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/psr/">PSR</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/laminas/">Laminas</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/spl/">SPL</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/xenforo/">Xenforo</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/zend-framework/">Zend Framework</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://xuanthulab.net/lap-trinh-ung-dung-ios-swift/">Lập trình ứng dụng iOS - Swift</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/ruby/">Ruby</a>
+<ul>
+<li>
+<a href="https://xuanthulab.net/sketchup/">Sketchup</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://xuanthulab.net/lap-trinh-dart-flutter/">Lập trình Dart - Flutter</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/lap-trinh-c-c-sharp/">Lập trình C# (C Sharp)</a>
+<ul>
+<li>
+<a href="https://xuanthulab.net/lap-trinh-c-co-ban/">Lập trình C# Cơ bản</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://xuanthulab.net/server/">Server</a>
+<ul>
+<li>
+<a href="https://xuanthulab.net/mysql-server/">MySql Server</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/windows/">Windows</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/apache/">Apache</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/php/">PHP</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://xuanthulab.net/html/">HTML</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/javascript/">Javascript</a>
+<ul>
+<li>
+<a href="https://xuanthulab.net/jquery/">JQuery</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/typescript-angular/">TypeScript - Angular</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://xuanthulab.net/css/">CSS</a>
+<ul>
+<li>
+<a href="https://xuanthulab.net/su-dung-sass-scss/">Sử dụng SASS / SCSS</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/bootstrap-css-framework/">Bootstrap - CSS Framework</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://xuanthulab.net/sql/">SQL</a>
+<ul>
+<li>
+<a href="https://xuanthulab.net/sql-server-net-framework-c/">SQL Server ( .NET Framework - C#)</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/ms-access/">MS Access</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://xuanthulab.net/java/">Java</a>
+<ul>
+<li>
+<a href="https://xuanthulab.net/android-java/">Android Java</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://xuanthulab.net/thuat-ngu-cac-van-de-co-ban/">Thuật ngữ - Các vấn đề cơ bản</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/tools/">Tools</a>
+<ul>
+<li>
+<a href="https://xuanthulab.net/kubernetes/">Kubernetes</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/git-va-github/" class="hotactive">Git và GitHub</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/mathematica/">Mathematica</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/ssh-secure-shell/">SSH - Secure Shell</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/grunt/">Grunt</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/elasticsearch/">Elasticsearch</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/docker/">Docker</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/macos/">macOS</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/english-study/">English Study</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://xuanthulab.net/tin-tuc-cong-nghe/">Tin tức công nghệ</a>
+</li>
+<li>
+<a href="https://xuanthulab.net/khoa-hoc/">Khoa học</a>
+<ul>
+<li>
+<a href="https://xuanthulab.net/yoga/">Yoga</a>
+</li>
+</ul>
+</li>
+</ul>        </div>
+        <div class="col-9 layout-post" style="height: auto !important; min-height: 0px !important;">
+                <nav class="breadcrumbnav"><ul class="breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList"><li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+                                <a property="item" typeof="WebPage" href="https://xuanthulab.net/tools/">
+                                                <span property="name">Tools</span>
+                                            </a>
+                                            <meta property="position" content="1">
+                            </li><li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+                                <a property="item" typeof="WebPage" href="https://xuanthulab.net/git-va-github/">
+                                                <span property="name">Git và GitHub</span>
+                                            </a>
+                                            <meta property="position" content="2">
+                            </li></ul></nav><div class="row w-100"><div class="text-right col-6"></div><div class="col-6">
+                    (Bài tiếp) <i class="fa fa-chevron-circle-right"></i>
+                    <a class="display-4 font20 text-danger" href="https://xuanthulab.net/lenh-git-init-tao-du-an-git-moi.html">
+                    git init - khởi tạo 
+                    </a></div></div>
+
+
+<div class="page-header">
+    <h1>Giới thiệu về hệ thống quản lý phiên bản Git cài đặt và thiết lập</h1>
+    <p class="lead">Tìm hiểu khái niệm cơ bản về VCS, hệ thống quản lý phiên bản Git, cách cài đặt Git, nguyên lý hoạt động cơ bản của Git, cấu hình tham số chung cho Git</p>
+</div>
+<div class="main-post" style="height: auto !important;">
+    <script async="" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/f(3).txt"></script>
+    <!-- XUANTHULAB1 -->
+    <ins class="adsbygoogle" style="display: block; height: 280px;" data-ad-client="ca-pub-4170344512131207" data-ad-slot="6971440560" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:982px;background-color:transparent;"><ins id="aswift_1_anchor" style="display: block; border: none; height: 280px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 982px; background-color: transparent; overflow: visible;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:982px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="982" height="280" frameborder="0" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/ads(2).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!1" data-google-query-id="CO3Ww96fyuwCFYa_ZAod3bkCJg" data-load-complete="true"></iframe></ins></ins></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <a class="btn btn-danger m-1" href="https://xuanthulab.net/git-va-github/"><i class="fa fa-bars"></i> Mục lục Git - GitHub</a>
+<a id="VCS" name="VCS"></a>
+<h2>VCS - Hệ thống quản lý phiên bản</h2>
+<p>Hệ thống quản lý phiên bản - Version Control System (VCS) là một hệ thống ghi nhận và lưu lại sự thay
+    đổi của các file theo thời gian, từ hệ thống đó một file có thể phục hồi quay về trạng thái (phiên bản) ở một thời
+    điểm trước đó. Ngoài ra bạn có thể theo dõi sự thay đổi của một file theo thời gian, ai đã thay đổi, thay đổi vào
+    lúc nào .... Có nhiều hệ thống VCS mà bạn có thể chọn sử dụng như: Concurrent Versions System, Subversion, Git,
+    Mercurial</p>
+
+<p>Ở đây chỉ giới thiệu hệ thống <strong>Git</strong> (và dịch vụ GitHub)</p>
+
+<p>
+Các Video: <a href="https://www.youtube.com/playlist?list=PLwJr0JSP7i8D041yrTcWB_qEdzijIUX-q" target="_blank">Sử dụng Git, GitHub</a>
+</p>
+
+<a id="phanloaiVCS" name="phanloaiVCS"></a>
+<h2>Phân loại VCS theo cách nó được ứng dụng</h2>
+<p>Khi bạn chưa biết đến VCS thì chắc là bạn đã từng làm việc sau: <i class="text-danger">Giả sử bạn có một thư
+        mục chứa một số file (code, media ...), trước khi bạn sửa đổi các file đó có thể bạn sẽ copy lại thư mục và lưu
+        lại với một cái tên đánh dấu để nhỡ cần phục hồi lại các file gốc thì có thể copy trở lại.
+        Việc làm của bạn chính là bạn vừa vận hành một hệ thống quản lý phiên bản.</i>.
+    Cách làm này đơn giản tuy nhiên gây ra nhiều lỗi như bạn có thể quyên mất thư mục ban đầu lưu trữ nhất là khó
+    mà nhớ thời điểm lưu lại khi copy nhiều lần thư mục.</p>
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        <p>Để giúp bạn thực hiện các điều trên dễ dàng hơn, bạn nên sử dụng một hệ quản trị phiên bản (VCS) chạy trên máy,
+            lúc này VCS sẽ tạo ra một <strong>Cơ sở dũ liệu</strong> lưu giữ những thay đổi của các file và giúp bạn
+            phục hồi về một phiên bản cũ một cách dễ dàng. Hệ thống đó bạn có thể gọi là
+            <strong class="text-danger">VCS cục bộ</strong>, mô hình hóa hoạt động như hình.</p>
+    </div>
+    <div class="col-sm-12 col-md-6">
+        <img src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/18333fig0101-tn.png">
+        VCS cục bộ
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        <p>Khi làm việc nhóm các developer thiết lập một hệ <strong class="text-danger">thống quản lý phiên bản
+                trung tâm (CVCS)</strong> ở một máy chủ, ở đó chứa các phiên bản của file, các lập trình viên kết nối
+            và lấy về sửa đổi rồi lại cập nhật lại ... Tuy nhiên CVCS vẫn có nhược điểm như Server bị dừng thì không
+            thể kết nối để các thành viên làm việc, Database ở Server bị lỗi (ví dụ do đĩa) thì khó
+            phục hồi file đã mất ...</p>
+    </div>
+    <div class="col-sm-12 col-md-6">
+        <img src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/centralized.png">
+        VCS trung tâm
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        <p>Khắc phục nhược điểm của CVCS thì một loại VCS nữa được đề xuất đó là
+            DVCS (Distributed Version Control Systems ) -
+            <strong class="text-danger">Hệ thống quản lý phiên bản phân tán</strong>,
+            nó giống với CVCS là có một máy chủ ở đó có Database lưu giữ các phiên bản của file, tuy nhiên
+            khác biệt đó là các máy khách (các developer) kết nối vào thỉ nó không chỉ lấy file mà nó lấy luôn cả hệ
+            thống Database. Điều này có nghĩa là khi Server bị ngắt, các máy khách vẫn làm việc bình thường trên
+            Database ở máy trạm, sau đó commit (chuyển) lên Server sau, hoặc Database ở Server bị lỗi thì máy
+            khách bất kỳ đều cỏ thể phục hồi lại cho Server</p>
+    </div>
+    <div class="col-sm-12 col-md-6">
+        <img src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/distributed.png">
+        VCS phân tán
+    </div>
+</div>
+<a id="Git" name="Git"></a>
+<h2>Giới thiệu hệ thống VCS Git</h2>
+<p><strong class="text-danger">Git</strong> chính là hệ thống quản lý phiên bản phân tán (DVCS),
+    với các ưu điểm: tốc độ, đơn giản, phân tán, phù hợp với dự án lớn nhỏ.</p>
+<h3>Cách lưu dữ liệu của Git</h3>
+<p><strong>Git</strong> lưu dữ liệu dưới dạng một loạt "ảnh chụp" (snapshot) của một tập hợp các file, có nghĩa là mỗi khi bạn <code>commit</code> (lưu lại) thì Git tiến hành chụp lại hệ thống các file thời điểm đó và lưu giữ một tham chiếu đến ảnh chụp dó, nhớ rằng các file không có thay đổi thì Git sẽ không lưu lại file đó lần nữa mà chỉ có một liên kết đến file đã lưu ở lần trước.</p>
+<h3>Hầu hết mọi thao tác với Git diễn ra ở Local</h3>
+<p>Vì mỗi máy trạm có một Database Git nên hầu hết thao tác với Git như thêm mới, xem lại lịch sử ... đều không cần đến Server (trừ cần commit lên Server, lấy về một file do người khác đã cập nhật)</p>
+<h3>Dữ liệu lưu trữ trong Git đảm bảo tính toàn vẹn</h3>
+<p>Mọi thứ trước khi được lưu trữ vào Git đều đước kiểm tra bởi mã băm (hash, checksum), có nghĩa là không thể thay đổi nội dung của file mà Git không biết về sự thay đổi đó. Chức năng này giúp cho bạn không thể mất thông tin khi trao đổi dữ liệu hay file lỗi mà không thể nhận ra được. Git sử dũng mã hash SHA-1, mỗi chuỗi hash SHA-1 sinh ra căn cứ theo nội dung của file dài 40 ký tự (tạo ra từ các ký tự trong khoảng thập lục phân : 0-9, a-f) có dạng:</p>
+<pre>62FC2DBFB0CB299DD8548286FE1BB1D2B2041379</pre>
+<p>Mã hash kiểu này bạn sẽ gặp thường xuyên khi làm việc với Git vì mọi thứ lưu trong dữ liệu đều căn cứ theo mã hash này.</p>
+
+<h3>Với Git cơ bản là thêm vào nó các dữ liệu</h3>
+<p>Các hành động trong Git hầu hết là các thao tác là thêm dữ liệu vào hệ thống Git. Rất khó để yêu cầu hệ thông thực hiện việc gì đó mà không phục hồi lại được, cũng như khó mà xóa hoàn toàn dữ liệu khỏi hệ thống.</p>
+<a id="Batrangthai" name="Batrangthai"></a>
+<h2>Ba trạng thái với Git</h2>
+<p>Với Git, các file của bạn có thể nằm ở một trong ba trạng thái: <code>committed</code>, <code>modified</code>, <code>staged</code></p>
+<p><strong class="text-danger">committed</strong> có nghĩa là dữ liệu đã lưu trữ an toàn trong Database (local)</p><div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-4170344512131207" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 280px;"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:982px;background-color:transparent;"><ins id="aswift_2_anchor" style="display: block; border: none; height: 280px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 982px; background-color: transparent; overflow: visible;"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:982px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="982" height="280" frameborder="0" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/ads(3).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!2" data-google-query-id="CJjn496fyuwCFS8R-QAdRycNtA" data-load-complete="true"></iframe></ins></ins></ins></div>
+<p><strong class="text-danger">modified</strong> có nghĩa là dữ liệu (file) có thay đổi nhưng chưa lưu trong Database (local)</p><div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-4170344512131207" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 280px;"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:982px;background-color:transparent;"><ins id="aswift_3_anchor" style="display: block; border: none; height: 280px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 982px; background-color: transparent; overflow: visible;"><iframe id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0;width:982px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="982" height="280" frameborder="0" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/ads(4).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!3" data-google-query-id="CNb8496fyuwCFZ8D-QAdKigF4g" data-load-complete="true"></iframe></ins></ins></ins></div>
+<p><strong class="text-danger">staged</strong> có nghĩa đánh dấu các file sửa đổi modified chuẩn bị được commit tiếp theo</p>
+<p>Các khái niệm trên dẫn tới Git tổ chức một dự án ra ba khu vực: <br><span class="badge badge-danger">1</span> Thư mục làm việc (Working tree) - Chứa bản sao phiên bản cụ thể của dự án
+    <br><span class="badge badge-danger">2</span> Khu vực sắp xếp (staging) - là một file, nằm trong thư mục Git chứa thông tin sẽ commit
+    <br><span class="badge badge-danger">3</span> Thư mục Git (Git directory) - nơi Git lưu Database các file Metadata</p>
+<img src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/areas.png">
+
+<p>Từ hình trên, khi làm việc với Git bạn theo tiến trình như sau:</p>
+<ul>
+    <li>Bạn code, sửa đổi các file trong <span class="badge badge-danger">1</span> Thư mục làm việc (Working tree)</li>
+    <li>Bạn tổ chức những sự thay đổi nào muốn commit tiếp theo, cơ bản là việc đánh dấu sự thay đổi vào khu vực <span class="badge badge-danger">2</span> Khu vực sắp xếp (staging)</li>
+    <li>Bạn thực hiện commit để các file đánh dấu trong staged lưu vào <span class="badge badge-danger">3</span>  Git (database) như nhưng snapshot (chụp file)</li>
+</ul>
+
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/gjQDyND-vN8.html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="">
+    </iframe>
+</div>
+
+<a id="GitInstall" name="GitInstall"></a>
+<h2 class="text-danger">Cài đặt Git</h2>
+<h3>Trên Linux</h3>
+<p>Chạy lệnh ở terminal với Ubuntu</p>
+<pre class="prettyprint lang-sh prettyprinted" style=""><span class="pln">sudo apt install git</span><span class="pun">-</span><span class="pln">all</span></pre>
+<p>Với CentOS</p>
+<pre class="prettyprint lang-sh prettyprinted" style=""><span class="pln">sudo yum install git</span></pre>
+<p>Với macOS</p>
+<pre class="prettyprint lang-sh prettyprinted" style=""><span class="pln">brew install git</span></pre>
+<h3>Trên Windows</h3>
+<p>Tải Git tại <a href="https://git-scm.com/download/win" target="_blank">Git Download</a>,
+    tiến hành chạy file tải về để cài đặt.</p>
+
+<a id="FirstTime" name="FirstTime"></a>
+<h2 class="text-danger">Lần đầu chạy Git - Thiết lập tham số</h2>
+<p>Mặc định bạn sẽ làm việc với Git ở giao diện dòng lệnh <code>cmd</code>,
+    đối với Git trên Windows mà bạn cài như trên bạn cũng có thể sử dụng <code>Git Bash</code>
+    - git-bash.exe trong thư mục <code>C:\Program Files\Git</code>,
+    để mở giao diện dòng lệnh tiện ích hơn là <code>cmd</code> mặc định của Windows. Nó có giao diện như dưới</p>
+<img src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/gitbash-4294.png">
+
+<p class="alert alert-danger">Bạn có thể tùy biến hiện thị của <strong>Git Bash</strong>
+    bằng cách sửa file cấu hình của nó ở <code>C:\Program Files\Git\etc\profile.d\git-prompt.sh</code></p>
+
+<p>Các tác vụ với Git thực hiện bằng lệnh <strong class="text-danger">git</strong> với tham số thích hợp.</p><div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-4170344512131207" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 280px;"><ins id="aswift_4_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:982px;background-color:transparent;"><ins id="aswift_4_anchor" style="display: block; border: none; height: 280px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 982px; background-color: transparent; overflow: visible;"><iframe id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;border:0;width:982px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="982" height="280" frameborder="0" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/ads(5).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!4" data-google-query-id="CKDa496fyuwCFYXUWwodR1cIsQ" data-load-complete="true"></iframe></ins></ins></ins></div>
+
+<p>Lệnh đầu tiên là hãy kiểm tra Version của Git đang dùng:</p>
+<pre class="prettyprint prettyprinted" style=""><span class="pln">git </span><span class="pun">--</span><span class="pln">version</span></pre>
+<p>Hiện thị các lệnh Git bằng cách gõ</p>
+<pre class="prettyprint prettyprinted" style=""><span class="pln">git </span><span class="pun">--</span><span class="pln">help</span></pre>
+<h3 class="text-danger">Cấu hình Git</h3>
+<p>Các tham số chung để bạn làm việc với Git được thiết lập với lệnh <code>git config</code> với vài cách khác nhau, nó thiết lập các biến tham số, các biến này có thể lưu trữ ở một số nơi tùy cách bạn thiết lập như:</p>
+<ul>
+    <li><code>/etc/gitconfig</code> : tham số khai báo trong file này có hiệu lực cho mọi user, dự án. Lệnh tương tác thiết lập với tham số <code>--system</code></li>
+    <li><code>~/.gitconfig</code> hoặc <code>~/.config/git/config</code> (Windows: <code>C:\Users\$USER\.gitconfig</code>) - thiết lập có hiệu lực với User hiện tại của hệ thống, thực hiện với tham số <code>--global</code></li>
+    <li><code>.git/config</code> cấu hình lưu ở chính thư mục .Git của dự án (repository), chỉ có tác dụng cho Repository này.</li>
+</ul>
+<p>Áp dụng bạn có thể thiết lập các tham số chung ban đầu như sau:</p>
+<p><strong class="text-danger">Tên trên hệ thống Git</strong></p>
+<pre class="prettyprint prettyprinted" style=""><span class="pln">git config </span><span class="pun">--</span><span class="kwd">global</span><span class="pln"> user</span><span class="pun">.</span><span class="pln">name </span><span class="str">"Tên của Bạn"</span></pre>
+<p><strong class="text-danger">Email của bạn trên Git</strong></p>
+<pre class="prettyprint prettyprinted" style=""><span class="pln">git config </span><span class="pun">--</span><span class="kwd">global</span><span class="pln"> user</span><span class="pun">.</span><span class="pln">email emailcuaban@domain</span><span class="pun">.</span><span class="pln">com</span></pre>
+<p>Nhớ là để xác định được danh tính của bạn cần thiết lập cả tên và email</p>
+<p><strong class="text-danger">Hiện thị các tham số thiết lập Git</strong></p>
+<pre class="prettyprint prettyprinted" style=""><span class="pln">git config </span><span class="pun">--</span><span class="pln">list</span></pre>
+
+<h2 class="text-danger">Tóm tắt các lệnh đã sử dụng</h2>
+<pre class="prettyprint lang-sh prettyprinted" style=""><small><span class="com"># Kiểm tra phiên bản GIT</span></small><span class="pln">
+git </span><span class="pun">--</span><span class="pln">version
+</span><small><span class="com"># Danh sách các thiết lập cấu hình</span></small><span class="pln">
+git config </span><span class="pun">--</span><span class="pln">list
+</span><small><span class="com"># Thiết lập tên</span></small><span class="pln">
+git config </span><span class="pun">--</span><span class="pln">global user</span><span class="pun">.</span><span class="pln">name </span><span class="str">"Tên của Bạn"</span><span class="pln">
+</span><small><span class="com"># Thiết lập email</span></small><span class="pln">
+git config </span><span class="pun">--</span><span class="pln">global user</span><span class="pun">.</span><span class="pln">email emailcuaban@domain</span><span class="pun">.</span><span class="pln">com</span></pre>
+
+
+    <div class="dropdown fixed-bottom text-right">
+    <button class="btn btn-danger dropdown-toggle m-1 btn-sm" data-toggle="dropdown">
+        Mục lục bài viết
+    </button>
+    <div class="dropdown-menu"><a class="dropdown-item" href="https://xuanthulab.net/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html#VCS"><strong>VCS - Hệ thống quản lý phiên bản</strong></a><a class="dropdown-item" href="https://xuanthulab.net/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html#phanloaiVCS"><strong>VCS - Phân loại</strong></a><a class="dropdown-item" href="https://xuanthulab.net/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html#Git"><strong>Giới thiệu VCS - Git</strong></a><a class="dropdown-item" href="https://xuanthulab.net/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html#Batrangthai"><strong>Ba trạng thái</strong></a><a class="dropdown-item" href="https://xuanthulab.net/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html#GitInstall"><strong>Cài đặt Git</strong></a><a class="dropdown-item" href="https://xuanthulab.net/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html#FirstTime"><strong>Thiết lập thông số lần đầu dùng Git</strong></a></div></div><a class="btn btn-danger m-1" href="https://xuanthulab.net/git-va-github/"><i class="fa fa-bars"></i> Mục lục Git - GitHub</a>
+    <div class="bg-warning p-1 row">
+        <div class="col-6 text-right">
+            Đăng ký theo dõi ủng hộ kênh
+        </div>
+        <div class="col-6">
+            <div id="___ytsubscribe_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 143px; height: 48px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 143px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 48px;" tabindex="0" vspace="0" width="100%" id="I0_1603440070270" name="I0_1603440070270" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/subscribe_embed.html" data-gapiattached="true"></iframe></div>
+        </div>
+    </div>
+
+</div>
+
+
+        <div class="socialmediabox">
+            
+<div class="fb-like fb_iframe_widget" data-href="https://xuanthulab.net/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=1565807193699425&amp;container_width=0&amp;href=https%3A%2F%2Fxuanthulab.net%2Fgioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html&amp;layout=button_count&amp;locale=vi_VN&amp;sdk=joey&amp;share=true&amp;size=small&amp;width="><span style="vertical-align: bottom; width: 138px; height: 28px;"><iframe name="f3b5719ef41173c" width="1000px" height="1000px" data-testid="fb:like Facebook Social Plugin" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/like.html" style="border: none; visibility: visible; width: 138px; height: 28px;" class=""></iframe></span></div>
+
+
+ <div class="tw">
+ <a href="https://twitter.com/share?url=https://xuanthulab.net/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html&amp;via=xaydungkientruc">
+ <img src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/favicon.ico">
+</a>
+</div>        </div><div class="google-auto-placed" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-4170344512131207" data-adsbygoogle-status="done" style="display: block; margin: 10px auto; background-color: transparent; height: 280px;"><ins id="aswift_6_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:982px;background-color:transparent;"><ins id="aswift_6_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:982px;background-color:transparent;"></ins></ins></ins></div>
+        <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid_desktop" data-href="https://xuanthulab.net/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html" data-width="100%" data-numposts="5" data-colorscheme="light" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=1565807193699425&amp;color_scheme=light&amp;container_width=982&amp;height=100&amp;href=https%3A%2F%2Fxuanthulab.net%2Fgioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;version=v7.0&amp;width=" style="width: 100%;"><span style="vertical-align: bottom; width: 100%; height: 254px;"><iframe name="f16cb3182e7c704" width="1000px" height="100px" data-testid="fb:comments Facebook Social Plugin" title="fb:comments Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/comments.html" style="border: none; visibility: visible; width: 100%; height: 254px;" class=""></iframe></span></div>
+
+<aside class="box-post-others">
+    <div class="list-group">
+                    <a class="list-group-item list-group-item-action" href="https://xuanthulab.net/lenh-git-fetch-git-pull-cap-nhat-du-lieu-tu-remote.html">Lệnh git fetch git pull cập nhật dữ liệu từ remote</a>
+                    <a class="list-group-item list-group-item-action" href="https://xuanthulab.net/lenh-git-push-day-du-lieu-tu-local-len-server.html">Lệnh git push đẩy dữ liệu từ local lên server</a>
+                    <a class="list-group-item list-group-item-action" href="https://xuanthulab.net/lenh-git-remote-quan-ly-cac-lien-ket-toi-remote-repo.html">Lệnh git remote quản lý các liên kết tới remote repo</a>
+                    <a class="list-group-item list-group-item-action" href="https://xuanthulab.net/lenh-git-merge-va-rebase-gop-va-viet-lai-lich-su-commit.html">Lệnh git merge và rebase - gộp và viết lại lịch sử commit</a>
+                    <a class="list-group-item list-group-item-action" href="https://xuanthulab.net/lenh-git-checkout-git-switch-git-restore-de-chuyen-nhanh-va-phuc-hoi.html">Lệnh git checkout git switch git restore để chuyển nhánh và phục hồi</a>
+                    <a class="list-group-item list-group-item-action" href="https://xuanthulab.net/git-github-cai-dat-va-su-dung.html">Git Github cài đặt và sử dụng</a>
+            </div>
+</aside>
+
+
+<div class="row w-100"><div class="text-right col-6"></div><div class="col-6">
+                    (Bài tiếp) <i class="fa fa-chevron-circle-right"></i>
+                    <a class="display-4 font20 text-danger" href="https://xuanthulab.net/lenh-git-init-tao-du-an-git-moi.html">
+                    git init - khởi tạo 
+                    </a></div></div>        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="text-light p-4 rounded-bottom xtlab-footer">
+            <div class="d-flex xtlab-link-footer">
+    <a href="https://xuanthulab.net/pages/about/">Giới thiệu</a><a href="https://xuanthulab.net/pages/privacy/">Privacy</a><a href="https://xuanthulab.net/pages/lich-van-nien-lich-van-su/">Lịch vạn niên</a><a href="https://xuanthulab.net/contact/"><i class="fa fa-phone-square"></i> Liên hệ</a><a href="https://xuanthulab.net/feed.rss"><i class="fa fa-rss text-warning"></i> RSS</a></div>                            <p class="text-right text-secondary">
+Đây là blog cá nhân, tôi ghi chép và chia sẻ những gì tôi học được ở đây về kiến thức lập trình PHP, Java, JavaScript, Android, C# ... và các kiến thức công nghệ khác
+<br>
+Developed by <a href="https://xuanthulab.net/pages/about/">XuanThuLab</a>
+</p>                        <a href="https://www.dmca.com/Protection/Status.aspx?ID=54c4c685-c124-42c4-939f-7bccbf90cc17&amp;refurl=https://xuanthulab.net/gioi-thieu-ve-he-thong-quan-ly-phien-ban-git-cai-dat-va-thiet-lap.html" title="DMCA.com Protection Status" class="dmca-badge"> <img src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/dmca-badge-w100-5x1-08.png" alt="DMCA.com Protection Status"></a>  <script src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/DMCABadgeHelper.min.js.download"> </script>
+        </div>
+    </div>
+</div><iframe id="google_osd_static_frame_3618434888415" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/saved_resource.html"></iframe>
+<script src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/platform.js.download" async="" defer="" gapi_processed="true">{lang: 'vi'}</script>
+
+<script type="text/javascript">
+    //<!--
+    $('#headermenuxtlab').on('shown.bs.collapse', function ()
+{
+    $('#layout-menu').show();
+});
+
+$('#headermenuxtlab').on('hidden.bs.collapse', function ()
+{
+    $('#layout-menu').hide();
+});
+
+    //-->
+</script>
+    <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+    <script async="" defer="" crossorigin="anonymous" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/sdk.js(1).download" nonce="q55xBZvL"></script>
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-42349908-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+<iframe name="oauth2relay1224557001" id="oauth2relay1224557001" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><div style="display: block; visibility: hidden; position: absolute; width: 106px; left: -1000px; top: -1000px;"><table cellpadding="0" cellspacing="0" dir="ltr" style="width:106px;" frame="void" rules="none" class=" gc-bubbleDefault pls-container"><tbody><tr class="gc-reset"><td class="pls-topLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/border_3.gif"></td><td class="pls-topTail gc-reset"><img class="pls-tailbottom gc-reset" style="width:15px !important; height:9px !important; max-width: 15px !important; max-height: 9px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/spacer.gif"><img class="pls-spacerbottom gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/spacer.gif"></td><td class="pls-topRight gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/border_3.gif"></td></tr><tr class="gc-reset"><td class="pls-vertShimLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:4px !important; max-width: 1px !important; max-height: 4px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/spacer.gif"></td><td class="pls-vertShim gc-reset"><img class="gc-reset" style="width:1px !important; height:4px !important; max-width: 1px !important; max-height: 4px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/spacer.gif"></td><td class="pls-vertShimRight gc-reset"><img class="pls-dropTR gc-reset" style="width:5px !important; height:4px !important; max-width: 5px !important; max-height: 4px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/spacer.gif"></td></tr><tr class="gc-reset"><td class="pls-contentLeft gc-reset"><img class="pls-tailright gc-reset" style="width:9px !important; height:15px !important; max-width: 9px !important; max-height: 15px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/spacer.gif"><img class="pls-spacerright gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/spacer.gif"></td><td class="pls-contentWrap gc-reset"><div class="goog-bubble-content gc-reset"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="margin:0px;position:absolute;z-index:1;border-style:none;outline:none;width:100px;" tabindex="0" vspace="0" width="100%" id="I0_1603440071210" name="I0_1603440071210" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/subscribe_embed(1).html"></iframe></div></td><td class="pls-dropRight gc-reset"><img class="pls-tailleft gc-reset" style="width:12px !important; height:19px !important; max-width: 12px !important; max-height: 19px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/spacer.gif"><img class="pls-spacerleft gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/spacer.gif"></td></tr><tr class="gc-reset"><td class="pls-bottomLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/border_3.gif"></td><td class="gc-reset"><table cellpadding="0" cellspacing="0" style="width:100%" class="gc-reset"><tbody><tr class="gc-reset"><td class="pls-vert gc-reset"><img class="pls-dropBL gc-reset" style="width:4px !important; height:5px !important; max-width: 4px !important; max-height: 5px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/spacer.gif"></td><td class="pls-dropBottom gc-reset"><img class="pls-tailtop gc-reset" style="width:19px !important; height:13px !important; max-width: 19px !important; max-height: 13px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/spacer.gif"><img class="pls-spacertop gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/spacer.gif"></td></tr></tbody></table></td><td class="pls-vert gc-reset"><img class="pls-dropBR gc-reset" style="width:5px !important; height:5px !important; max-width: 5px !important; max-height: 5px !important;" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/spacer.gif"></td></tr></tbody></table></div></body><iframe id="google_esf" name="google_esf" src="./GioiThieuVeVCS-Git-CaiDatVaThietLap_files/zrt_lookup.html" data-ad-client="ca-pub-4170344512131207" style="display: none;"></iframe></html>

@@ -1,0 +1,3 @@
+if (self.CavalryLogger) { CavalryLogger.start_js(["HEYbr"]); }
+
+__d("FBLoomStaticResourceFileTypes",[],(function(a,b,c,d,e,f){"use strict";f.isStaticResourceFileType=a;var g={js:"js",css:"css",wasm:"wasm",woff:"woff",woff2:"woff2",otf:"otf",eot:"eot",ttf:"ttf"};f.FBLoomStaticResourceFileTypes=g;function a(a){return Object.prototype.hasOwnProperty.call(g,a)}}),null);
