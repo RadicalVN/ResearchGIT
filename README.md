@@ -1,4 +1,4 @@
-# test
+# ReasearchGIT
 
 Test đồng bộ dữ liệu từ serverDev (trên server repository) về serverDev (trong local repository)
 B1: Check lần 1:
