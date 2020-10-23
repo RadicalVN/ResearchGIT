@@ -8,6 +8,7 @@ B1: Check lần 1:
    - Tạo remote (kết nối) giữa local repository và server repository: Mở Git Gui -> chọn remote -> chọn add ... -> điền name (tên remote - có thể có nhiều remote)
      và location (link server repository trên github - đuôi *.git nhớ lấy đúng link khi đang ở branch serverDev).
      -> Sau đó chọn remote -> chọn Fetch ... (chọn option Do Nothing Else Now). Để liên kết đồng bộ branch giữa server và local. Nếu đã có rồi thì không cần làm bước này.
+   - Tắt gitGUi và mở lại.
    - Đồng bộ dữ liệu (merge): chọn merge -> chọn local merger ... (ctr + M) -> chọn tracking branch -> chọn origin/serverDev (tùy vào trường hợp mà chọn đúng branch)-> chọn merge
    - Kiểm tra kết quả: Vào folder (local repository) tìm file README.md để kiểm tra xem dữ liệu đã được đồng bộ chưa.
      KQ: dữ liệu từ branch serverDev (trên server repository) được đồng bộ về serverDev (trong local repository).
@@ -23,6 +24,7 @@ B1: Check lần 4:
    - Tạo remote (kết nối) giữa local repository và server repository: Mở Git Gui -> chọn remote -> chọn add ... -> điền name (tên remote - có thể có nhiều remote)
      và location (link server repository trên github - đuôi *.git nhớ lấy đúng link khi đang ở branch serverDev).
      -> Sau đó chọn remote -> chọn Fetch ... (chọn option Do Nothing Else Now). Để liên kết đồng bộ branch giữa server và local. Nếu đã có rồi thì không cần làm bước này.
+   - Tắt gitGUi và mở lại.
    - Chuyển (checkout) về branch chứa dữ liệu cần đồng bộ (ví dụ là serverDev)
    - Mở file README.md trong folder (của local repository) -> chỉnh sửa nội dung file -> lưu lại.
    - Đồng bộ dữ liệu (push): chọn rescan (load sự thay đổi dữ liệu trong local repository) -> chọn stage changed
